@@ -23,13 +23,13 @@ export function Sidebar() {
     <aside
       className={[
         'flex min-h-screen flex-col border-r border-[#dde5f0] bg-white transition-[width] duration-200 ease-out',
-        isCollapsed ? 'w-[68px]' : 'w-52',
+        isCollapsed ? 'w-17' : 'w-52',
       ].join(' ')}
     >
       <div className="flex w-full flex-1 flex-col">
         <div
           className={[
-            'relative flex h-[70px] items-center px-4',
+            'relative flex h-17.5 items-center px-4',
             isCollapsed ? 'justify-center px-0' : 'justify-between',
           ].join(' ')}
         >

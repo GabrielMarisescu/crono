@@ -31,7 +31,7 @@ export function SidebarNavItem({
       to={href}
     >
       {active ? (
-        <span className="absolute left-0 top-1/2 h-9 w-[3px] -translate-y-1/2 rounded-r-full bg-crono-teal" />
+        <span className="absolute left-0 top-1/2 h-9 w-0.75 -translate-y-1/2 rounded-r-full bg-crono-teal" />
       ) : null}
       <IconSlot active={active} name={icon} src={iconSrc} />
       <span

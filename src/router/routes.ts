@@ -12,7 +12,7 @@ export const routes: AppRoute[] = [
   {
     path: '/dashboard',
     label: 'Dashboard',
-    title: 'Crono Dashboard',
+    title: 'Crono',
     Component: DashboardPage,
   },
 ]

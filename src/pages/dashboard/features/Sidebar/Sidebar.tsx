@@ -1,12 +1,16 @@
 import { useState } from 'react'
-import { dashboardMockData } from '../../dashboardMockData'
+import type { DashboardData } from '../../api/dashboardApi'
 import { SidebarLogo } from './components/SidebarLogo'
 import { SidebarNav } from './components/SidebarNav'
 import { SidebarTrialCard } from './components/SidebarTrialCard'
 import { SidebarUser } from './components/SidebarUser'
 import { useIsCompactViewport } from './components/useIsCompactViewport'
 
-export function Sidebar() {
+type SidebarProps = {
+  data: DashboardData['sidebar']
+}
+
+export function Sidebar({ data }: SidebarProps) {
   const [isManuallyCollapsed, setIsManuallyCollapsed] = useState(false)
   const isCompactViewport = useIsCompactViewport()
   const isCollapsed = isCompactViewport || isManuallyCollapsed
@@ -17,7 +21,7 @@ export function Sidebar() {
     navItems,
     trial,
     user,
-  } = dashboardMockData.sidebar
+  } = data
 
   return (
     <aside

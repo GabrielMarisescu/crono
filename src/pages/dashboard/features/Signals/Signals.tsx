@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import type { Signal } from '../../dashboardMockData'
+import type { Signal } from '../../mocks/dashboardMockData'
 import { SignalRow } from './components/SignalRow'
+import { useSignalActions } from './hooks/useSignalActions'
 
 type SignalsProps = {
   avatarSrc: string
@@ -14,9 +15,15 @@ type SignalsProps = {
 
 export function Signals({ avatarSrc, completeIconSrc, count, deleteIconSrc, description, items, title }: SignalsProps) {
   const [activeSignalId, setActiveSignalId] = useState<string | null>(null)
-  const [completedSignalIds, setCompletedSignalIds] = useState<Set<string>>(new Set())
-  const [deletedSignalIds, setDeletedSignalIds] = useState<Set<string>>(new Set())
-  const unreadCount = Math.max(0, count - completedSignalIds.size - deletedSignalIds.size)
+  const {
+    resolveSignal,
+    unreadCount,
+    visibleSignals,
+  } = useSignalActions(count, items)
+
+  function toggleActionMenu(signalId: string, isOpen: boolean) {
+    setActiveSignalId(isOpen ? signalId : null)
+  }
 
   return (
     <section className="rounded-2xl border border-crono-border bg-white shadow-[0_1px_2px_rgba(1,14,39,0.02)] xl:col-span-2 xl:col-start-1 xl:min-h-130 xl:row-start-3">
@@ -31,32 +38,22 @@ export function Signals({ avatarSrc, completeIconSrc, count, deleteIconSrc, desc
       </div>
 
       <div className="mt-2 max-h-127.5 overflow-y-auto px-1">
-        {items.map((item, index) => {
-          const signalId = `${item.description}-${index}`
-
-          if (completedSignalIds.has(signalId) || deletedSignalIds.has(signalId)) {
-            return null
-          }
-
+        {visibleSignals.map(({ id, item }) => {
           return (
           <SignalRow
             avatarSrc={avatarSrc}
             completeIconSrc={completeIconSrc}
             deleteIconSrc={deleteIconSrc}
-            isActionMenuOpen={activeSignalId === signalId}
+            isActionMenuOpen={activeSignalId === id}
             onActionToggle={(isOpen) => {
-              setActiveSignalId(isOpen ? signalId : null)
+              toggleActionMenu(id, isOpen)
             }}
             onResolve={(resolution) => {
-              if (resolution === 'completed') {
-                setCompletedSignalIds((currentIds) => new Set(currentIds).add(signalId))
-              } else {
-                setDeletedSignalIds((currentIds) => new Set(currentIds).add(signalId))
-              }
+              resolveSignal(id, resolution)
               setActiveSignalId(null)
             }}
             {...item}
-            key={signalId}
+            key={id}
           />
           )
         })}

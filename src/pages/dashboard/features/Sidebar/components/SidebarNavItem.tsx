@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import type { SidebarItem } from '../../../dashboardMockData'
+import type { SidebarItem } from '../../../mocks/dashboardMockData'
 import { IconSlot } from './IconSlot'
 
 type SidebarNavItemProps = SidebarItem & {

@@ -1,4 +1,4 @@
-import { PerformanceMetricAccent, type PerformanceMetric } from '../../../dashboardMockData'
+import { PerformanceMetricAccent, type PerformanceMetric } from '../../../mocks/dashboardMockData'
 
 const accentClasses: Record<PerformanceMetric['accent'], string> = {
   [PerformanceMetricAccent.Activities]: 'text-crono-purple bg-crono-purple',

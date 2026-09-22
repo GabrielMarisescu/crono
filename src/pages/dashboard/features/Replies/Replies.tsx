@@ -1,4 +1,4 @@
-import type { ReplyAvatar } from '../../dashboardMockData'
+import type { ReplyAvatar } from '../../mocks/dashboardMockData'
 import { ReplyAvatars } from './components/ReplyAvatars'
 
 type RepliesProps = {

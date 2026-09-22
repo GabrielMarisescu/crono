@@ -1,4 +1,5 @@
-import type { Signal } from '../../../dashboardMockData'
+import type { Signal } from '../../../mocks/dashboardMockData'
+import { SignalResolution } from '../hooks/useSignalActions'
 
 type SignalRowProps = Signal & {
   avatarSrc: string
@@ -6,7 +7,7 @@ type SignalRowProps = Signal & {
   deleteIconSrc: string
   isActionMenuOpen: boolean
   onActionToggle: (isOpen: boolean) => void
-  onResolve: (resolution: 'completed' | 'deleted') => void
+  onResolve: (resolution: SignalResolution) => void
 }
 
 const categoryClasses: Record<Signal['category'], string> = {
@@ -49,7 +50,7 @@ export function SignalRow({ avatarSrc, category, completeIconSrc, date, deleteIc
         <div className="absolute right-3 top-full z-20 mt-2 w-52 overflow-hidden rounded-2xl border border-crono-border bg-white p-1 shadow-[0_5px_16px_rgba(1,14,39,0.14)]" role="menu">
           <button
             className="group/complete flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[14px] font-medium text-crono-dark hover:bg-crono-moonlight hover:text-crono-teal"
-            onClick={() => onResolve('completed')}
+            onClick={() => onResolve(SignalResolution.Completed)}
             role="menuitem"
             type="button"
           >
@@ -62,7 +63,7 @@ export function SignalRow({ avatarSrc, category, completeIconSrc, date, deleteIc
           </button>
           <button
             className="group/delete flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[14px] font-medium text-crono-dark hover:bg-crono-moonlight hover:text-crono-teal"
-            onClick={() => onResolve('deleted')}
+            onClick={() => onResolve(SignalResolution.Deleted)}
             role="menuitem"
             type="button"
           >

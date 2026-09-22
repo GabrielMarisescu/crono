@@ -1,4 +1,4 @@
-import type { TaskStatus } from '../../dashboardMockData'
+import type { TaskStatus } from '../../mocks/dashboardMockData'
 import { TaskStatusCard } from './components/TaskStatusCard'
 
 type TodayTasksProps = {

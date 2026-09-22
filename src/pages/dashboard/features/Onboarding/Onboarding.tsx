@@ -1,4 +1,4 @@
-import type { OnboardingStep } from '../../dashboardMockData'
+import type { OnboardingStep } from '../../mocks/dashboardMockData'
 
 type OnboardingProps = {
   steps: OnboardingStep[]

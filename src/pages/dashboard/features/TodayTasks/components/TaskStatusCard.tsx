@@ -1,4 +1,4 @@
-import { TaskStatusTone, type TaskStatus } from '../../../dashboardMockData'
+import { TaskStatusTone, type TaskStatus } from '../../../mocks/dashboardMockData'
 
 const toneClasses: Record<TaskStatus['tone'], string> = {
   [TaskStatusTone.Blue]: 'bg-crono-blue-light',

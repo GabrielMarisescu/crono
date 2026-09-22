@@ -1,4 +1,4 @@
-import type { ReplyAvatar } from '../../../dashboardMockData'
+import type { ReplyAvatar } from '../../../mocks/dashboardMockData'
 
 type ReplyAvatarsProps = {
   avatars: ReplyAvatar[]

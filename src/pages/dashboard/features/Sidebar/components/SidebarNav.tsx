@@ -1,4 +1,4 @@
-import type { SidebarItem } from '../../../dashboardMockData'
+import type { SidebarItem } from '../../../mocks/dashboardMockData'
 import { SidebarNavItem } from './SidebarNavItem'
 
 type SidebarNavProps = {

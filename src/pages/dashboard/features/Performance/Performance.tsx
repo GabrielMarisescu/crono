@@ -1,4 +1,4 @@
-import type { PerformanceMetric } from '../../dashboardMockData'
+import type { PerformanceMetric } from '../../mocks/dashboardMockData'
 import { PerformanceMetricCard } from './components/PerformanceMetricCard'
 
 type PerformanceProps = {

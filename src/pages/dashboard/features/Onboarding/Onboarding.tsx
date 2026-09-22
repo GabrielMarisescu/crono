@@ -4,7 +4,7 @@ export function Onboarding() {
   const { data } = useOnboardingQuery()
 
   if (!data) {
-    return null
+    return <div className="min-h-[520px] animate-pulse rounded-2xl border border-crono-border bg-white xl:col-start-3 xl:row-start-3" />
   }
 
   const { steps, title } = data

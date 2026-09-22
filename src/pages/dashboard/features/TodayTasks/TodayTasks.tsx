@@ -5,7 +5,7 @@ export function TodayTasks() {
   const { data } = useTodayTasksQuery()
 
   if (!data) {
-    return null
+    return <div className="min-h-[148px] animate-pulse rounded-2xl border border-crono-border bg-white xl:col-span-2" />
   }
 
   const { chevronSrc, errorIconSrc, statuses, title } = data

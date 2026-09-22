@@ -5,7 +5,7 @@ export function Performance() {
   const { data } = usePerformanceQuery()
 
   if (!data) {
-    return null
+    return <div className="min-h-[300px] animate-pulse rounded-2xl border border-crono-border bg-white xl:row-span-2" />
   }
 
   const { editIconSrc, editLabel, metrics, title } = data

@@ -12,7 +12,7 @@ export function Sidebar() {
   const { data } = useSidebarQuery()
 
   if (!data) {
-    return null
+    return <aside className="min-h-screen w-52 shrink-0 animate-pulse border-r border-crono-border bg-white" />
   }
 
   const isCollapsed = isCompactViewport || isManuallyCollapsed

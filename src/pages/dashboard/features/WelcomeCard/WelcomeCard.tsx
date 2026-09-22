@@ -4,7 +4,7 @@ export function WelcomeCard() {
   const { data } = useWelcomeQuery()
 
   if (!data) {
-    return null
+    return <div className="min-h-35 animate-pulse rounded-2xl border border-crono-border bg-white" />
   }
 
   const { description, title } = data

@@ -5,7 +5,7 @@ export function Replies() {
   const { data } = useRepliesQuery()
 
   if (!data) {
-    return null
+    return <div className="min-h-35 animate-pulse rounded-2xl border border-crono-border bg-white" />
   }
 
   const { avatars, count, ctaLabel, iconSrc, title } = data

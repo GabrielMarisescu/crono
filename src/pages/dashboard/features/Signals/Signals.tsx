@@ -13,7 +13,7 @@ export function Signals() {
   } = useSignalActions(data?.count ?? 0, data?.items ?? [])
 
   if (!data) {
-    return null
+    return <div className="min-h-130 animate-pulse rounded-2xl border border-crono-border bg-white xl:col-span-2 xl:col-start-1 xl:row-start-3" />
   }
 
   const { avatarSrc, completeIconSrc, deleteIconSrc, description, title } = data
@@ -38,21 +38,21 @@ export function Signals() {
         {visibleSignals.map((item) => {
           const { id } = item
           return (
-          <SignalRow
-            avatarSrc={avatarSrc}
-            completeIconSrc={completeIconSrc}
-            deleteIconSrc={deleteIconSrc}
-            isActionMenuOpen={activeSignalId === id}
-            onActionToggle={(isOpen) => {
-              toggleActionMenu(id, isOpen)
-            }}
-            onResolve={(resolution) => {
-              resolveSignal(id, resolution)
-              setActiveSignalId(null)
-            }}
-            {...item}
-            key={id}
-          />
+            <SignalRow
+              avatarSrc={avatarSrc}
+              completeIconSrc={completeIconSrc}
+              deleteIconSrc={deleteIconSrc}
+              isActionMenuOpen={activeSignalId === id}
+              onActionToggle={(isOpen) => {
+                toggleActionMenu(id, isOpen)
+              }}
+              onResolve={(resolution) => {
+                resolveSignal(id, resolution)
+                setActiveSignalId(null)
+              }}
+              {...item}
+              key={id}
+            />
           )
         })}
       </div>

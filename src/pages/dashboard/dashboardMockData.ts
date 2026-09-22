@@ -51,7 +51,7 @@ export type PerformanceMetric = {
 
 export type OnboardingStep = {
   duration: string
-  icon: string
+  iconSrc: string
   label: string
 }
 
@@ -123,11 +123,11 @@ export const dashboardMockData = {
   },
   onboarding: {
     steps: [
-      { duration: '5 min', icon: '↗', label: 'Integrations Setup' },
-      { duration: '5 min', icon: '+', label: 'Add new Contact' },
-      { duration: '10 min', icon: '◎', label: 'Create your first sequence' },
-      { duration: '5 min', icon: '⊕', label: 'Add contacts to sequence' },
-      { duration: '10 min', icon: '✓', label: 'Run your first task' },
+      { duration: '5 min', iconSrc: '/static/sidebar-icons/onboarding-integrations.svg', label: 'Integrations Setup' },
+      { duration: '5 min', iconSrc: '/static/sidebar-icons/onboarding-add-contact.svg', label: 'Add new Contact' },
+      { duration: '10 min', iconSrc: '/static/sidebar-icons/onboarding-target-goal.svg', label: 'Create your first sequence' },
+      { duration: '5 min', iconSrc: '/static/sidebar-icons/onboarding-add-to-sequence.svg', label: 'Add contacts to sequence' },
+      { duration: '10 min', iconSrc: '/static/sidebar-icons/onboarding-run-task.svg', label: 'Run your first task' },
     ] satisfies OnboardingStep[],
     title: 'Onboarding',
   },

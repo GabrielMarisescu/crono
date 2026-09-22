@@ -1,11 +1,17 @@
 # Crono Frontend Challenge
 
+## Hosted App
+
+[crono-alpha.vercel.app](https://crono-alpha.vercel.app/)
+
 ## Stack
 
 - React 19
 - TypeScript
 - Vite
 - Tailwind CSS 4
+- React Router 7
+- TanStack React Query
 - ESLint
 
 ## Getting Started

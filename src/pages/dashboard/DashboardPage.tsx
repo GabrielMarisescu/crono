@@ -2,12 +2,13 @@ import { dashboardMockData } from './dashboardMockData'
 import { Replies } from './features/Replies'
 import { Onboarding } from './features/Onboarding'
 import { Performance } from './features/Performance'
+import { Signals } from './features/Signals'
 import { Sidebar } from './features/Sidebar'
 import { TodayTasks } from './features/TodayTasks'
 import { WelcomeCard } from './features/WelcomeCard'
 
 export function DashboardPage() {
-  const { onboarding, performance, replies, todayTasks, welcome } = dashboardMockData
+  const { onboarding, performance, replies, signals, todayTasks, welcome } = dashboardMockData
 
   return (
     <main className="min-h-screen bg-[#f6f7f9] text-slate-950">
@@ -20,6 +21,7 @@ export function DashboardPage() {
             <Performance {...performance} />
             <TodayTasks {...todayTasks} />
             <Onboarding {...onboarding} />
+            <Signals {...signals} />
           </div>
         </section>
       </div>

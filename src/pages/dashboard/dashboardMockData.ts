@@ -56,6 +56,13 @@ export type OnboardingStep = {
   label: string
 }
 
+export type Signal = {
+  category: 'company' | 'role' | 'website'
+  date: string
+  description: string
+  tags: string[]
+}
+
 export const dashboardMockData = {
   welcome: {
     title: 'Welcome Alex,',
@@ -131,6 +138,31 @@ export const dashboardMockData = {
       { duration: '10 min', iconSrc: '/static/sidebar-icons/onboarding-run-task.svg', label: 'Run your first task' },
     ] satisfies OnboardingStep[],
     title: 'Onboarding',
+  },
+  signals: {
+    avatarSrc: '/static/sidebar-icons/reply-avatar-dark-channel.svg',
+    completeIconSrc: '/static/sidebar-icons/signal-complete.svg',
+    count: 12,
+    deleteIconSrc: '/static/sidebar-icons/signal-delete.svg',
+    description: 'Never miss a single opportunity: check out your top signals from your 1st-degree LinkedIn connections.',
+    items: [
+      { category: 'role', date: 'Apr 2, 2025', description: 'Robert Smith changed role from SDR to Senior SDR at WeRoad', tags: ['Role change', 'In sequence'] },
+      { category: 'company', date: 'Apr 2, 2025', description: 'Robert Smith changed role from SDR to Senior SDR at WeRoad', tags: ['Company change', 'In sequence'] },
+      { category: 'role', date: 'Apr 2, 2025', description: 'Robert Smith changed role from SDR to Senior SDR at WeRoad', tags: ['Role change'] },
+      { category: 'website', date: 'Apr 2, 2025', description: 'Amazon viewed 2 pages of your website for 65 sec', tags: ['Website view'] },
+      { category: 'website', date: 'Apr 2, 2025', description: 'Amazon viewed 2 pages of your website for 65 sec', tags: ['Website view'] },
+      { category: 'role', date: 'Apr 1, 2025', description: 'Sarah Johnson changed role from Account Executive to Sales Manager at Deel', tags: ['Role change', 'In sequence'] },
+      { category: 'company', date: 'Apr 1, 2025', description: 'Notion added 120 new employees to their company profile', tags: ['Company change'] },
+      { category: 'website', date: 'Mar 31, 2025', description: 'Loom viewed 4 pages of your website for 2 min', tags: ['Website view', 'In sequence'] },
+      { category: 'role', date: 'Mar 31, 2025', description: 'Michael Brown joined Acme as Head of Sales', tags: ['Role change'] },
+      { category: 'company', date: 'Mar 30, 2025', description: 'Figma opened a new office in London', tags: ['Company change', 'In sequence'] },
+      { category: 'website', date: 'Mar 29, 2025', description: 'HubSpot viewed 3 pages of your website for 48 sec', tags: ['Website view'] },
+      { category: 'role', date: 'Mar 28, 2025', description: 'Emily Davis changed role from BDR to Account Executive at Linear', tags: ['Role change', 'In sequence'] },
+      { category: 'company', date: 'Mar 27, 2025', description: 'Stripe expanded their sales team by 18 people', tags: ['Company change'] },
+      { category: 'website', date: 'Mar 26, 2025', description: 'Vercel viewed 5 pages of your website for 90 sec', tags: ['Website view'] },
+      { category: 'role', date: 'Mar 25, 2025', description: 'James Wilson joined Ramp as VP of Revenue', tags: ['Role change', 'In sequence'] },
+    ] satisfies Signal[],
+    title: 'Signals',
   },
   sidebar: {
     brand: {

@@ -7,7 +7,7 @@ type OnboardingProps = {
 
 export function Onboarding({ steps, title }: OnboardingProps) {
   return (
-    <section className="rounded-2xl border border-crono-border bg-white p-4 shadow-[0_1px_2px_rgba(1,14,39,0.02)] xl:col-start-3">
+    <section className="rounded-2xl border border-crono-border bg-white p-4 shadow-[0_1px_2px_rgba(1,14,39,0.02)] xl:col-start-3 xl:row-start-3">
       <h2 className="text-[14px] font-bold leading-5 text-crono-dark">{title}</h2>
       <div className="mt-2">
         {steps.map((step, index) => (

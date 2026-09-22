@@ -30,6 +30,31 @@ export type TaskStatus = {
   tone: TaskStatusTone
 }
 
+export enum PerformanceMetricAccent {
+  Contacts = 'contacts',
+  Companies = 'companies',
+  Activities = 'activities',
+  Deals = 'deals',
+  Green = 'green',
+  Meetings = 'meetings',
+}
+
+export type PerformanceMetric = {
+  accent: PerformanceMetricAccent
+  current: string
+  iconSrc?: string
+  iconText?: string
+  label: string
+  progress: number
+  total: string
+}
+
+export type OnboardingStep = {
+  duration: string
+  icon: string
+  label: string
+}
+
 export const dashboardMockData = {
   welcome: {
     title: 'Welcome Alex,',
@@ -82,6 +107,29 @@ export const dashboardMockData = {
       { count: 20, label: 'Pending Auto', tone: TaskStatusTone.Blue, errorLabel: '1 error' },
       { count: 8, label: 'Completed', tone: TaskStatusTone.Green },
     ] satisfies TaskStatus[],
+  },
+  performance: {
+    editIconSrc: '/static/sidebar-icons/edit-kpis.svg',
+    editLabel: 'Edit KPIs',
+    metrics: [
+      { accent: PerformanceMetricAccent.Contacts, current: '0', iconSrc: '/static/sidebar-icons/performance-contacts.svg', label: 'Contacts engaged', progress: 0, total: '500' },
+      { accent: PerformanceMetricAccent.Companies, current: '0', iconSrc: '/static/sidebar-icons/performance-companies.svg', label: 'Companies engaged', progress: 0, total: '500' },
+      { accent: PerformanceMetricAccent.Activities, current: '1000', iconSrc: '/static/sidebar-icons/performance-activities.svg', label: 'Activities', progress: 50, total: '2000' },
+      { accent: PerformanceMetricAccent.Meetings, current: '20', iconSrc: '/static/sidebar-icons/performance-meetings.svg', label: 'Meetings', progress: 67, total: '30' },
+      { accent: PerformanceMetricAccent.Deals, current: '100', iconSrc: '/static/sidebar-icons/performance-deals.svg', label: 'Deals', progress: 50, total: '200' },
+      { accent: PerformanceMetricAccent.Green, current: '50K', iconText: '€', label: 'Pipeline', progress: 50, total: '100K' },
+    ] satisfies PerformanceMetric[],
+    title: 'May’s performance',
+  },
+  onboarding: {
+    steps: [
+      { duration: '5 min', icon: '↗', label: 'Integrations Setup' },
+      { duration: '5 min', icon: '+', label: 'Add new Contact' },
+      { duration: '10 min', icon: '◎', label: 'Create your first sequence' },
+      { duration: '5 min', icon: '⊕', label: 'Add contacts to sequence' },
+      { duration: '10 min', icon: '✓', label: 'Run your first task' },
+    ] satisfies OnboardingStep[],
+    title: 'Onboarding',
   },
   sidebar: {
     brand: {

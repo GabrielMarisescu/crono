@@ -5,7 +5,7 @@ type WelcomeCardProps = {
 
 export function WelcomeCard({ description, title }: WelcomeCardProps) {
   return (
-    <section className="flex min-h-35 items-center rounded-2xl border border-crono-border bg-white px-9 py-7 shadow-[0_1px_2px_rgba(1,14,39,0.02)]">
+    <section className="mt-2 flex min-h-35 items-center rounded-2xl border border-crono-border bg-white px-9 py-7 shadow-[0_1px_2px_rgba(1,14,39,0.02)]">
       <div>
         <h1 className="text-[24px] font-bold leading-7.5 text-crono-dark">
           {title}

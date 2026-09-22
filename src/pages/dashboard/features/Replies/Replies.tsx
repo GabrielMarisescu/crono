@@ -17,7 +17,7 @@ export function Replies({
   title,
 }: RepliesProps) {
   return (
-    <section className="min-h-35 rounded-2xl border border-crono-border bg-white p-5 shadow-[0_1px_2px_rgba(1,14,39,0.02)]">
+    <section className="mt-2 min-h-35 rounded-2xl border border-crono-border bg-white p-5 shadow-[0_1px_2px_rgba(1,14,39,0.02)]">
       <div className="flex items-center justify-between gap-4">
         <h2 className="text-[14px] font-bold text-crono-dark">{title}</h2>
         <button

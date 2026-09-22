@@ -1,10 +1,6 @@
 import { useState } from 'react'
 import type { Signal } from '../../../mocks/dashboardMockData'
-
-export enum SignalResolution {
-  Completed = 'completed',
-  Deleted = 'deleted',
-}
+import { SignalResolution } from '../types'
 
 type SignalEntry = {
   id: string

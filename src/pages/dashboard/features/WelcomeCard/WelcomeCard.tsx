@@ -1,9 +1,14 @@
-type WelcomeCardProps = {
-  description: string
-  title: string
-}
+import { useWelcomeQuery } from './hooks/useWelcomeQuery'
 
-export function WelcomeCard({ description, title }: WelcomeCardProps) {
+export function WelcomeCard() {
+  const { data } = useWelcomeQuery()
+
+  if (!data) {
+    return null
+  }
+
+  const { description, title } = data
+
   return (
     <section className="mt-2 flex min-h-35 items-center rounded-2xl border border-crono-border bg-white px-9 py-7 shadow-[0_1px_2px_rgba(1,14,39,0.02)]">
       <div>

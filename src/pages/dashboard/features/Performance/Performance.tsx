@@ -1,14 +1,15 @@
-import type { PerformanceMetric } from '../../mocks/dashboardMockData'
 import { PerformanceMetricCard } from './components/PerformanceMetricCard'
+import { usePerformanceQuery } from './hooks/usePerformanceQuery'
 
-type PerformanceProps = {
-  editIconSrc: string
-  editLabel: string
-  metrics: PerformanceMetric[]
-  title: string
-}
+export function Performance() {
+  const { data } = usePerformanceQuery()
 
-export function Performance({ editIconSrc, editLabel, metrics, title }: PerformanceProps) {
+  if (!data) {
+    return null
+  }
+
+  const { editIconSrc, editLabel, metrics, title } = data
+
   return (
     <section className="mt-2 rounded-2xl border border-crono-border bg-white p-4 shadow-[0_1px_2px_rgba(1,14,39,0.02)] xl:row-span-2 xl:flex xl:flex-col">
       <div className="flex items-center justify-between gap-3">

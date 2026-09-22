@@ -1,14 +1,15 @@
-import type { TaskStatus } from '../../mocks/dashboardMockData'
 import { TaskStatusCard } from './components/TaskStatusCard'
+import { useTodayTasksQuery } from './hooks/useTodayTasksQuery'
 
-type TodayTasksProps = {
-  chevronSrc: string
-  errorIconSrc: string
-  statuses: TaskStatus[]
-  title: string
-}
+export function TodayTasks() {
+  const { data } = useTodayTasksQuery()
 
-export function TodayTasks({ chevronSrc, errorIconSrc, statuses, title }: TodayTasksProps) {
+  if (!data) {
+    return null
+  }
+
+  const { chevronSrc, errorIconSrc, statuses, title } = data
+
   return (
     <section className="rounded-2xl border border-crono-border bg-white px-4 py-4 shadow-[0_1px_2px_rgba(1,14,39,0.02)] xl:col-span-2">
       <h2 className="text-[14px] font-bold leading-5 text-crono-dark">{title}</h2>

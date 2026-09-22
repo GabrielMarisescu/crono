@@ -1,25 +1,22 @@
 import { useState } from 'react'
-import type { Signal } from '../../mocks/dashboardMockData'
 import { SignalRow } from './components/SignalRow'
 import { useSignalActions } from './hooks/useSignalActions'
+import { useSignalsQuery } from './hooks/useSignalsQuery'
 
-type SignalsProps = {
-  avatarSrc: string
-  completeIconSrc: string
-  count: number
-  deleteIconSrc: string
-  description: string
-  items: Signal[]
-  title: string
-}
-
-export function Signals({ avatarSrc, completeIconSrc, count, deleteIconSrc, description, items, title }: SignalsProps) {
+export function Signals() {
+  const { data } = useSignalsQuery()
   const [activeSignalId, setActiveSignalId] = useState<string | null>(null)
   const {
     resolveSignal,
     unreadCount,
     visibleSignals,
-  } = useSignalActions(count, items)
+  } = useSignalActions(data?.count ?? 0, data?.items ?? [])
+
+  if (!data) {
+    return null
+  }
+
+  const { avatarSrc, completeIconSrc, deleteIconSrc, description, title } = data
 
   function toggleActionMenu(signalId: string, isOpen: boolean) {
     setActiveSignalId(isOpen ? signalId : null)

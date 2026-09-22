@@ -1,11 +1,14 @@
-import type { OnboardingStep } from '../../mocks/dashboardMockData'
+import { useOnboardingQuery } from './hooks/useOnboardingQuery'
 
-type OnboardingProps = {
-  steps: OnboardingStep[]
-  title: string
-}
+export function Onboarding() {
+  const { data } = useOnboardingQuery()
 
-export function Onboarding({ steps, title }: OnboardingProps) {
+  if (!data) {
+    return null
+  }
+
+  const { steps, title } = data
+
   return (
     <section className="rounded-2xl border border-crono-border bg-white p-4 shadow-[0_1px_2px_rgba(1,14,39,0.02)] xl:col-start-3 xl:row-start-3">
       <h2 className="text-[14px] font-bold leading-5 text-crono-dark">{title}</h2>

@@ -1,18 +1,20 @@
 import { useState } from 'react'
-import type { DashboardData } from '../../api/dashboardApi'
 import { SidebarLogo } from './components/SidebarLogo'
 import { SidebarNav } from './components/SidebarNav'
 import { SidebarTrialCard } from './components/SidebarTrialCard'
 import { SidebarUser } from './components/SidebarUser'
 import { useIsCompactViewport } from './components/useIsCompactViewport'
+import { useSidebarQuery } from './hooks/useSidebarQuery'
 
-type SidebarProps = {
-  data: DashboardData['sidebar']
-}
-
-export function Sidebar({ data }: SidebarProps) {
+export function Sidebar() {
   const [isManuallyCollapsed, setIsManuallyCollapsed] = useState(false)
   const isCompactViewport = useIsCompactViewport()
+  const { data } = useSidebarQuery()
+
+  if (!data) {
+    return null
+  }
+
   const isCollapsed = isCompactViewport || isManuallyCollapsed
   const {
     analyticsChevronSrc,

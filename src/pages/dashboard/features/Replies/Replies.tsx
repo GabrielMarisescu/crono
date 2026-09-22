@@ -1,21 +1,15 @@
-import type { ReplyAvatar } from '../../mocks/dashboardMockData'
 import { ReplyAvatars } from './components/ReplyAvatars'
+import { useRepliesQuery } from './hooks/useRepliesQuery'
 
-type RepliesProps = {
-  avatars: ReplyAvatar[]
-  count: number
-  ctaLabel: string
-  iconSrc: string
-  title: string
-}
+export function Replies() {
+  const { data } = useRepliesQuery()
 
-export function Replies({
-  avatars,
-  count,
-  ctaLabel,
-  iconSrc,
-  title,
-}: RepliesProps) {
+  if (!data) {
+    return null
+  }
+
+  const { avatars, count, ctaLabel, iconSrc, title } = data
+
   return (
     <section className="mt-2 min-h-35 rounded-2xl border border-crono-border bg-white p-5 shadow-[0_1px_2px_rgba(1,14,39,0.02)]">
       <div className="flex items-center justify-between gap-4">

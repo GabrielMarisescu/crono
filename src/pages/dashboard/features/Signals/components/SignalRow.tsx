@@ -1,5 +1,5 @@
 import type { Signal } from '../../../mocks/dashboardMockData'
-import { SignalResolution } from '../hooks/useSignalActions'
+import { SignalResolution, signalCategoryClasses } from '../types'
 
 type SignalRowProps = Signal & {
   avatarSrc: string
@@ -8,12 +8,6 @@ type SignalRowProps = Signal & {
   isActionMenuOpen: boolean
   onActionToggle: (isOpen: boolean) => void
   onResolve: (resolution: SignalResolution) => void
-}
-
-const categoryClasses: Record<Signal['category'], string> = {
-  company: 'text-crono-blue',
-  role: 'text-[#8846dc]',
-  website: 'text-[#e769cb]',
 }
 
 export function SignalRow({ avatarSrc, category, completeIconSrc, date, deleteIconSrc, description, isActionMenuOpen, onActionToggle, onResolve, tags }: SignalRowProps) {
@@ -27,7 +21,7 @@ export function SignalRow({ avatarSrc, category, completeIconSrc, date, deleteIc
       <div className="min-w-0 flex-1">
         <p className="truncate text-[14px] font-semibold leading-5 text-crono-dark">{description}</p>
         <div className="mt-1 flex flex-wrap items-center gap-2 text-[12px] leading-4">
-          <span className={categoryClasses[category]}>{tags[0]}</span>
+          <span className={signalCategoryClasses[category]}>{tags[0]}</span>
           {tags.slice(1).map((tag) => (
             <span className="rounded-full bg-crono-moonlight px-2 py-0.5 text-crono-teal" key={tag}>
               {tag}

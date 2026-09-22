@@ -143,7 +143,7 @@ export const dashboardMockData = {
   signals: {
     avatarSrc: '/static/sidebar-icons/reply-avatar-dark-channel.svg',
     completeIconSrc: '/static/sidebar-icons/signal-complete.svg',
-    count: 12,
+    count: 15,
     deleteIconSrc: '/static/sidebar-icons/signal-delete.svg',
     description: 'Never miss a single opportunity: check out your top signals from your 1st-degree LinkedIn connections.',
     items: [

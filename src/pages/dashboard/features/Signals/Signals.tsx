@@ -23,7 +23,7 @@ export function Signals() {
   }
 
   return (
-    <section className="rounded-2xl border border-crono-border bg-white shadow-[0_1px_2px_rgba(1,14,39,0.02)] xl:col-span-2 xl:col-start-1 xl:min-h-130 xl:row-start-3">
+    <section className="flex h-[580px] max-h-[580px] self-start flex-col rounded-2xl border border-crono-border bg-white shadow-[0_1px_2px_rgba(1,14,39,0.02)] xl:col-span-2 xl:col-start-1 xl:row-start-3">
       <div className="px-4 pt-4">
         <div className="flex items-center gap-2">
           <h2 className="text-[14px] font-bold leading-5 text-crono-dark">{title}</h2>
@@ -34,7 +34,7 @@ export function Signals() {
         <p className="mt-1 text-[14px] leading-6 text-crono-gray">{description}</p>
       </div>
 
-      <div className="mt-2 max-h-127.5 overflow-y-auto px-1">
+      <div className="mt-2 min-h-0 flex-1 overflow-y-auto px-1">
         {visibleSignals.map((item) => {
           const { id } = item
           return (

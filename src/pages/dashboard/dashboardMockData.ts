@@ -8,7 +8,56 @@ export type SidebarItem = {
   hasMenu?: boolean
 }
 
+export type ReplyAvatar = {
+  backgroundColor: string
+  color: string
+  imageSrc: string
+  label: string
+  text: string
+}
+
 export const dashboardMockData = {
+  welcome: {
+    title: 'Welcome Alex,',
+    description:
+      "Here's your performance overview where you can track your daily and monthly KPIs",
+  },
+  replies: {
+    title: 'Replies',
+    ctaLabel: 'Open inbox',
+    count: 24,
+    iconSrc: '/static/sidebar-icons/icon-06.svg',
+    avatars: [
+      {
+        label: 'Reddit',
+        text: 'r',
+        backgroundColor: '#ff4500',
+        color: '#ffffff',
+        imageSrc: '/static/sidebar-icons/reply-avatar-reddit.svg',
+      },
+      {
+        label: 'Dark channel',
+        text: '',
+        backgroundColor: '#17243b',
+        color: '#ffffff',
+        imageSrc: '/static/sidebar-icons/reply-avatar-dark-channel.svg',
+      },
+      {
+        label: 'McDonalds',
+        text: 'M',
+        backgroundColor: '#ffffff',
+        color: '#f9bb06',
+        imageSrc: '/static/sidebar-icons/reply-avatar-mcdonalds.svg',
+      },
+      {
+        label: 'Medium',
+        text: 'M',
+        backgroundColor: '#111111',
+        color: '#ffffff',
+        imageSrc: '/static/sidebar-icons/reply-avatar-medium.svg',
+      },
+    ] satisfies ReplyAvatar[],
+  },
   sidebar: {
     brand: {
       name: 'crono',

@@ -1,10 +1,11 @@
 import { dashboardMockData } from './dashboardMockData'
 import { Replies } from './features/Replies'
 import { Sidebar } from './features/Sidebar'
+import { TodayTasks } from './features/TodayTasks'
 import { WelcomeCard } from './features/WelcomeCard'
 
 export function DashboardPage() {
-  const { replies, welcome } = dashboardMockData
+  const { replies, todayTasks, welcome } = dashboardMockData
 
   return (
     <main className="min-h-screen bg-[#f6f7f9] text-slate-950">
@@ -16,7 +17,12 @@ export function DashboardPage() {
             <Replies {...replies} />
             <div
               aria-hidden="true"
-              className="min-h-[140px] rounded-2xl border border-[#dde5f0] bg-white shadow-[0_1px_2px_rgba(1,14,39,0.02)]"
+              className="min-h-[140px] rounded-2xl border border-crono-border bg-white shadow-[0_1px_2px_rgba(1,14,39,0.02)]"
+            />
+            <TodayTasks {...todayTasks} />
+            <div
+              aria-hidden="true"
+              className="min-h-[140px] rounded-2xl border border-crono-border bg-white shadow-[0_1px_2px_rgba(1,14,39,0.02)]"
             />
           </div>
         </section>

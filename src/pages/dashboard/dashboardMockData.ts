@@ -16,6 +16,20 @@ export type ReplyAvatar = {
   text: string
 }
 
+export enum TaskStatusTone {
+  Blue = 'blue',
+  Green = 'green',
+  Red = 'red',
+  Yellow = 'yellow',
+}
+
+export type TaskStatus = {
+  count: number
+  errorLabel?: string
+  label: string
+  tone: TaskStatusTone
+}
+
 export const dashboardMockData = {
   welcome: {
     title: 'Welcome Alex,',
@@ -57,6 +71,17 @@ export const dashboardMockData = {
         imageSrc: '/static/sidebar-icons/reply-avatar-medium.svg',
       },
     ] satisfies ReplyAvatar[],
+  },
+  todayTasks: {
+    chevronSrc: '/static/sidebar-icons/task-chevron.svg',
+    errorIconSrc: '/static/sidebar-icons/task-error.svg',
+    title: "Today's tasks",
+    statuses: [
+      { count: 3, label: 'Overdue', tone: TaskStatusTone.Red },
+      { count: 10, label: 'Pending Manual', tone: TaskStatusTone.Yellow },
+      { count: 20, label: 'Pending Auto', tone: TaskStatusTone.Blue, errorLabel: '1 error' },
+      { count: 8, label: 'Completed', tone: TaskStatusTone.Green },
+    ] satisfies TaskStatus[],
   },
   sidebar: {
     brand: {

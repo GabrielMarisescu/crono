@@ -14,7 +14,7 @@ export function SidebarUser({ isCollapsed, user }: SidebarUserProps) {
     <div>
       <div
         className={[
-          'flex h-16.5 items-center gap-3 border-t border-[#dde5f0] px-3',
+          'flex h-16.5 items-center gap-3 border-t border-crono-border px-3',
           isCollapsed ? 'justify-center px-0' : '',
         ].join(' ')}
       >

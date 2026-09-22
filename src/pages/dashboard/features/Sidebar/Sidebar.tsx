@@ -22,7 +22,7 @@ export function Sidebar() {
   return (
     <aside
       className={[
-        'flex min-h-screen flex-col border-r border-[#dde5f0] bg-white transition-[width] duration-200 ease-out',
+        'flex min-h-screen flex-col border-r border-crono-border bg-white transition-[width] duration-200 ease-out',
         isCollapsed ? 'w-17' : 'w-52',
       ].join(' ')}
     >

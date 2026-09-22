@@ -13,7 +13,7 @@ export function SidebarNav({
   items,
 }: SidebarNavProps) {
   return (
-    <nav aria-label="Main navigation" className="py-1">
+    <nav aria-label="Main navigation" className="flex flex-col gap-3 py-1">
       {items.map((item) => (
         <SidebarNavItem
           key={item.label}

@@ -6,6 +6,7 @@ type SignalRowProps = Signal & {
   deleteIconSrc: string
   isActionMenuOpen: boolean
   onActionToggle: (isOpen: boolean) => void
+  onResolve: (resolution: 'completed' | 'deleted') => void
 }
 
 const categoryClasses: Record<Signal['category'], string> = {
@@ -14,7 +15,7 @@ const categoryClasses: Record<Signal['category'], string> = {
   website: 'text-[#e769cb]',
 }
 
-export function SignalRow({ avatarSrc, category, completeIconSrc, date, deleteIconSrc, description, isActionMenuOpen, onActionToggle, tags }: SignalRowProps) {
+export function SignalRow({ avatarSrc, category, completeIconSrc, date, deleteIconSrc, description, isActionMenuOpen, onActionToggle, onResolve, tags }: SignalRowProps) {
   return (
     <article className="relative flex min-h-18.5 items-center gap-3 border-crono-border px-3 py-3 first:border-t-0">
       <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#17243b]">
@@ -48,7 +49,7 @@ export function SignalRow({ avatarSrc, category, completeIconSrc, date, deleteIc
         <div className="absolute right-3 top-full z-20 mt-2 w-52 overflow-hidden rounded-2xl border border-crono-border bg-white p-1 shadow-[0_5px_16px_rgba(1,14,39,0.14)]" role="menu">
           <button
             className="group/complete flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[14px] font-medium text-crono-dark hover:bg-crono-moonlight hover:text-crono-teal"
-            onClick={() => onActionToggle(false)}
+            onClick={() => onResolve('completed')}
             role="menuitem"
             type="button"
           >
@@ -61,7 +62,7 @@ export function SignalRow({ avatarSrc, category, completeIconSrc, date, deleteIc
           </button>
           <button
             className="group/delete flex w-full items-center justify-between rounded-xl px-3 py-3 text-left text-[14px] font-medium text-crono-dark hover:bg-crono-moonlight hover:text-crono-teal"
-            onClick={() => onActionToggle(false)}
+            onClick={() => onResolve('deleted')}
             role="menuitem"
             type="button"
           >

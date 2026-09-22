@@ -12,6 +12,7 @@ const accentClasses: Record<PerformanceMetric['accent'], string> = {
 export function PerformanceMetricCard({
   accent,
   current,
+  infoIconSrc,
   iconSrc,
   iconText,
   label,
@@ -24,6 +25,15 @@ export function PerformanceMetricCard({
     <div className="h-full rounded-lg border border-crono-border px-2 py-2">
       <div className="flex items-center justify-between gap-1 text-[12px] leading-4 text-crono-gray-dark">
         <span className="truncate">{label}</span>
+        {infoIconSrc ? (
+          <span
+            aria-label="More information"
+            className="group/info h-4 w-4 shrink-0 bg-crono-gray transition-colors hover:bg-crono-dark"
+            role="img"
+            style={{ WebkitMaskImage: `url(${infoIconSrc})`, maskImage: `url(${infoIconSrc})` }}
+            title="More information"
+          />
+        ) : null}
       </div>
       <div className={`mt-4 flex items-center gap-1 text-[16px] font-medium leading-5 ${textColor}`}>
         {iconSrc ? (

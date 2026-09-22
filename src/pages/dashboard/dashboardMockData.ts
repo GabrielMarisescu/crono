@@ -42,6 +42,7 @@ export enum PerformanceMetricAccent {
 export type PerformanceMetric = {
   accent: PerformanceMetricAccent
   current: string
+  infoIconSrc?: string
   iconSrc?: string
   iconText?: string
   label: string
@@ -112,7 +113,7 @@ export const dashboardMockData = {
     editIconSrc: '/static/sidebar-icons/edit-kpis.svg',
     editLabel: 'Edit KPIs',
     metrics: [
-      { accent: PerformanceMetricAccent.Contacts, current: '0', iconSrc: '/static/sidebar-icons/performance-contacts.svg', label: 'Contacts engaged', progress: 0, total: '500' },
+      { accent: PerformanceMetricAccent.Contacts, current: '0', iconSrc: '/static/sidebar-icons/performance-contacts.svg', infoIconSrc: '/static/sidebar-icons/performance-info.svg', label: 'Contacts engaged', progress: 0, total: '500' },
       { accent: PerformanceMetricAccent.Companies, current: '0', iconSrc: '/static/sidebar-icons/performance-companies.svg', label: 'Companies engaged', progress: 0, total: '500' },
       { accent: PerformanceMetricAccent.Activities, current: '1000', iconSrc: '/static/sidebar-icons/performance-activities.svg', label: 'Activities', progress: 50, total: '2000' },
       { accent: PerformanceMetricAccent.Meetings, current: '20', iconSrc: '/static/sidebar-icons/performance-meetings.svg', label: 'Meetings', progress: 67, total: '30' },

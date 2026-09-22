@@ -35,7 +35,8 @@ export function Signals() {
       </div>
 
       <div className="mt-2 max-h-127.5 overflow-y-auto px-1">
-        {visibleSignals.map(({ id, item }) => {
+        {visibleSignals.map((item) => {
+          const { id } = item
           return (
           <SignalRow
             avatarSrc={avatarSrc}

@@ -2,20 +2,11 @@ import { useState } from 'react'
 import type { Signal } from '../../../mocks/dashboardMockData'
 import { SignalResolution } from '../types'
 
-type SignalEntry = {
-  id: string
-  item: Signal
-}
-
 export function useSignalActions(count: number, items: Signal[]) {
   const [completedSignalIds, setCompletedSignalIds] = useState<Set<string>>(new Set())
   const [deletedSignalIds, setDeletedSignalIds] = useState<Set<string>>(new Set())
 
-  const entries: SignalEntry[] = items.map((item, index) => ({
-    id: `${item.description}-${index}`,
-    item,
-  }))
-  const visibleSignals = entries.filter(
+  const visibleSignals = items.filter(
     ({ id }) => !completedSignalIds.has(id) && !deletedSignalIds.has(id),
   )
 
